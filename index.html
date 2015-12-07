@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>test whois</title>
+	</head>
+	<body>
+		
+		<form action="check.php" method="POST">
+			Domain: <input type="text" id="domain" name="domain" /><br />
+			gr: <input name="tlds[]" id="tld_gr" value=".gr" type="checkbox" checked="checked" /><br />
+			com: <input name="tlds[]" id="tld_com" value=".com" type="checkbox" checked="checked" /><br />
+			net: <input name="tlds[]" id="tld_net" value=".net" type="checkbox" /><br />
+			org: <input name="tlds[]" id="tld_org" value=".org" type="checkbox" /><br />
+			eu: <input name="tlds[]" id="tld_eu" value=".eu" type="checkbox" /><br />
+			<br />
+			<input type="submit" value="Search" />
+		</form>
+		
+	</body>
+</html>
