@@ -25,10 +25,15 @@ class pointer_api {
         return curl_exec($curl);
     }
 
-    function login($username, $password) {
+    function login($username = null, $password = null) {
     	
-		$this->login_username = $username;
-		$this->login_password = $password;
+		if( ! is_null($username)) {
+            $this->login_username = $username;    
+        }
+
+        if( ! is_null($password)) {
+            $this->login_password = $password;    
+        }
 
         $chksum = md5($this->login_username . $this->login_password . 'login');
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
