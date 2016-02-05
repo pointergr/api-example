@@ -13,7 +13,7 @@ class pointer_api {
     }
 
     function request($xml) {
-        $url = "http://admin.pointer.gr/reseller";
+        $url = "https://www.pointer.gr/api";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, Array("Content-Type:text/xml", "testserver: 0")); // testserver 0=Normal registry, 1=test registry
