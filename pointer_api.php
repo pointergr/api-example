@@ -104,6 +104,31 @@ class pointer_api {
         }
         return $arr;
     }
+	
+    function productCreate($domain, $duration, $autorenew, $product_code, $addon) {
+      $chksum = md5($this->login_username . $this->login_password . 'createProduct' . $this->key);
+      $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+          <pointer>
+              <product>
+                  <create>
+                    <domain>" . $domain . "</domain>
+                    <duration>" . $duration . "</duration>
+                    <code>" . $product_code . "</code>
+                    <autorenew>" . $autorenew . "</autorenew>
+                    <addon>" . $addon . "</addon>
+                  </create>
+              </product>
+              <username>" . $this->login_username . "</username>
+              <chksum>" . $chksum . "</chksum>
+          </pointer>";
+      $result = $this->request($xml);
+      $xml = $this->_parseRequest($result);
+      return array(
+        'action'=> $xml->product->result->action,
+        'id'=> $xml->id,
+        'message'=> $xml->message
+      );
+    }
 
     protected function _parseRequest($request_string) {
         try {
